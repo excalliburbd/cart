@@ -46,3 +46,17 @@
     
 
 </div>
+
+<div ng-controller="IndexCtrl">
+
+    Api Submission :3
+
+    <form ng-submit="submit()">
+        Name:<input type="text" ng-model="inputfields.name"/><br>
+        Info:<input type="text" ng-model="inputfields.info"/><br>
+        Available:<input type="checkbox" ng-model="inputfields.available"/><br>
+        Ammount:<input type="number" ng-model="inputfields.ammount"/><br>
+        Price:<input type="text" ng-model="inputfields.price"/><br>
+        <input type="submit" /> 
+    </form>
+</div>

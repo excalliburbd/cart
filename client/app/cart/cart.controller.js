@@ -23,6 +23,13 @@ app.controller("IndexCtrl", ["$scope", "$log", "$http", "cartService", function(
                 $scope.items.push(response.records.slice(length-length%3, length%3));
             }
         });
+
+    $scope.inputfields = {};
+
+    $scope.submit = function() {
+
+        $http.post("/api/products", $scope.inputfields).success($log.info("Yay!!!!"))
+    }
     
     $scope.addToCart = function (itemObj) {
         
