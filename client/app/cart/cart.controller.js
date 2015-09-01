@@ -8,19 +8,19 @@ app.controller("CartCtrl",["$scope", function($scope) {
 
 app.controller("IndexCtrl", ["$scope", "$log", "$http", "cartService", function($scope, $log, $http, cartService) {
         
-    $http.get("http://www.w3schools.com/angular/customers.php")
+    $http.get("/api/products")
         .success(function(response) {
         
             $scope.items = [];
-            var length = response.records.length;
+            var length = response.length;
             for (var i=0; i<length; i+=3) {
                 
-                $scope.items.push(response.records.slice(i, i+3));
+                $scope.items.push(response.slice(i, i+3));
             }                
             
             if(length % 3 != 0) {
                 
-                $scope.items.push(response.records.slice(length-length%3, length%3));
+                $scope.items.push(response.slice(length-length%3, length%3));
             }
         });
 
